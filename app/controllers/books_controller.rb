@@ -23,7 +23,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: "Book was successfully updated."
+      redirect_to books_path, notice: "Book was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,6 +40,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, author_ids: [:id])
+      params.require(:book).permit(:title, author_ids: [])
     end
 end

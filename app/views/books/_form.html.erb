@@ -6,7 +6,7 @@
     <%= f.label 'Author:'%><br>
     
     <% Author.all.each do |author|%>
-      <%= f.check_box "author_ids[]", {multiple: true}, author.id, false%>
+      <%= check_box_tag "book[author_ids][]", author.id, f.object.authors.include?(author), {multiple: true} %>
       <%=author.first_name%>
     <%end%>
   </p>

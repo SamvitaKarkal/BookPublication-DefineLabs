@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h1 style= 'text-align:center'>Authors and Books they wrote</h1>
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
+<% if @books.present? %>
+  <div style= 'margin-top: 10px'>
+    <table style = "margin:auto; cell-padding:9px">
+      <tbody>
+        <% @books.each do |book| %>
+          <tr >
+            <td><h3>title: </h3></td>
+            <td><%= book.title%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <h3>No book found</h3>
+<% end %>
+
 <%= link_to 'Back', authors_path %>

@@ -13,7 +13,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
-    render status: :ok, json: { author: @author}
+    @books = Author.find(params[:id]).books
   end
 
   def create
