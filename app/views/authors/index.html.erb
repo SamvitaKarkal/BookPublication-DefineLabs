@@ -1,25 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Authors</h1>
+<h1 style = "text-align:center;">Authors</h1>
+<p style = "text-align:center; margin: 20px 1px">
+<%= link_to 'Create new Author', new_author_path %>
+</p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @authors.each do |author| %>
-      <tr>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @authors.present? %>
+  <table style = "margin:auto; border: 1px solid black; cell-padding:9px">
+    <tbody>
+      <% @authors.each do |author| %>
+        <tr>
+          <td><%= author.first_name%> <%=author.last_name %></td>
+          <td><%= link_to 'Edit', edit_author_path(author) %></td>
+          <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h3>No Author found</h3>
+<% end %>
 
 <br>
 
-<%= link_to 'New Author', new_author_path %>
+

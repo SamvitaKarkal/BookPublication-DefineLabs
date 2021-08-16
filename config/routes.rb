@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  resources :homes
   resources :book_authors
   resources :books
   resources :authors
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get '/authors/:id', :to => 'author#show'
+
+  root 'homes#index'
 end
