@@ -1,6 +1,9 @@
-<h1>Editing Book</h1>
+<div class="subjects edit"> 
+  <h1>Editing Book</h1>
 
-<%= render 'form', book: @book %>
+  <%= form_for(@book, :url => book_path(@book), :method=>'patch') do |f| %>
+    <%=render(:partial =>'form', :locals => {:f=>f})%>
+  <% end %>
+</div>
 
-<%= link_to 'Show', @book %> |
 <%= link_to 'Back', books_path %>

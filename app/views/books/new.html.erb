@@ -1,5 +1,9 @@
-<h1>New Book</h1>
-
-<%= render 'form', book: @book %>
+<div>
+  <h1 style= 'text-align:center'>Create New Book</h1>
+  
+  <%= form_for(@book, :url => books_path, :method => 'post') do |f| %>
+    <%=render(:partial =>'form', :locals => {:f=>f})%>
+  <% end %>
+</div>
 
 <%= link_to 'Back', books_path %>

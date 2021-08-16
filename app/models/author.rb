@@ -4,5 +4,5 @@ class Author < ApplicationRecord
 
   validates :first_name, presence: true, length: {maximum: 25}
   validates :last_name, presence: true, length: {maximum: 25}
-  validates :date_fo_birth, presence: true
+  validates :date_of_birth, presence: true
 end
