@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_author, only: %i[ show edit update destroy ]
 
   def index
